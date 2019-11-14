@@ -18,10 +18,11 @@ int getSensorData() {
             if (Serial.read() == 0x4d)
             {
                 Serial.readBytes(sensorData, 10);
-                co2 = (sensorData[4]<<8) + sensorData[5];
+                co2 = (sensorData[2]*256) + sensorData[3];
                 return co2;
             }  
         }
     }
+    // 返回为0则无数据
     return 0;
 }

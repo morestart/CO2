@@ -1,12 +1,24 @@
 #include <Arduino.h>
-#include "sensor.h"
+#include "wifi.h"
+#include "mqtt.h"
+#include "definitions.h"
+#include "button.h"
+#include "processdata.h"
 
-void setup() {
-  Serial.begin(9600);
+
+void setup()
+{
+	Serial.begin(9600);
+	initButton();
+	loadWifiWebConfig();
+	loadMQTTConfig();
+	initTimer();
+	subscribeTopic_();
 }
 
-
-void loop() {
-  getSensorData();
-  delay(2000);
+void loop()
+{
+	keepMqttConnect();
+	getButtonDown();
+	loopTimer();
 }
