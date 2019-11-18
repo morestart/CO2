@@ -3,5 +3,8 @@
 
 #include <Arduino.h>
 int getSensorData();
+void dhtSetup();
+float getHum();
+float getTem();
 
 #endif

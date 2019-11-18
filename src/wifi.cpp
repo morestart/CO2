@@ -20,7 +20,6 @@ void clean()
 {
     wifiManager.resetSettings();
     SPIFFS.format();
-    
 }
 
 // this function will set save flag to true
